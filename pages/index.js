@@ -3,7 +3,31 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Blog from '../components/Blog'
 
+const env = process.env.STRAPIBASEURL; 
+console.log(`my env: ${env}`)
+// export async function getStaticProps(context) {
+//   const fetchParams = {
+//     method: "POST", 
+//     headers: {
+//       authorization: `Bearer ${accessToken}`, 
+//       "content-type": "application/json"
+//     },
+//     body: JSON.stringify(
+//       {
+
+//       }
+//     )
+//   }
+//   const res = fetch()
+
+
+//   return {
+//     props: {}
+//   };
+// }
+
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <Head>
