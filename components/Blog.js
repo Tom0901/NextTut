@@ -6,7 +6,6 @@ function Blog({title, description}) {
         <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>{title}</h2>
             <p>{description}</p>
-            <p className={styles.read}>Stuff</p>
         </a>
     )
 }

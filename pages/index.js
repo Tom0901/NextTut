@@ -10,30 +10,30 @@ export async function getStaticProps(context) {
     method: "POST", 
     headers: { 
       "content-type": "application/json"
+
     },
     body: JSON.stringify(
       {
         query: `
-        query{
+        {
           blogPosts{
-            Title
-            BlogBody
+            title
+            description
+            blogBody
           }
         }
         `
       }
     )
   }
-  const res = await fetch(`${env}/graphql`); 
-  // const data = await res.json(); 
-  console.log(res)
-
+  const res = await fetch(`${env}/graphql`, fetchParams); 
+  const {data} = await res.json(); 
   return {
-    props: {title:"hello world"}
+    props: data
   };
 }
 
-export default function Home() {
+export default function Home({blogPosts}) {
 
   return (
     <div className={styles.container}>
@@ -54,10 +54,9 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <Blog title="stuff" description="lorem etc and then some more words"/>
-          <Blog title="stuff" description="lorem etc and then some more words"/>
-          <Blog title="stuff" description="lorem etc and then some more words"/>
-          <Blog title="stuff" description="lorem etc and then some more words"/>
+          {blogPosts.map((blog, i)=>{
+            return <Blog title={blog.title} description={blog.description} key={i}/>
+          })}
         </div>
       </main>
 
