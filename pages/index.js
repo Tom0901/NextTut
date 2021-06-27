@@ -20,6 +20,7 @@ export async function getStaticProps(context) {
             title
             description
             blogBody
+            slug
           }
         }
         `
@@ -55,7 +56,8 @@ export default function Home({blogPosts}) {
 
         <div className={styles.grid}>
           {blogPosts.map((blog, i)=>{
-            return <Blog title={blog.title} description={blog.description} key={i}/>
+            const {title, description, slug} = blog
+            return <Blog title={title} description={description} slug={slug} key={i}/>
           })}
         </div>
       </main>

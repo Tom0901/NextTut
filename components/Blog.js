@@ -1,12 +1,15 @@
 import React from 'react'
 import styles from '../styles/Blog.module.css'
+import Link from 'next/link';
 
-function Blog({title, description}) {
+function Blog({title, description, slug}) {
     return (
-        <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>{title}</h2>
-            <p>{description}</p>
-        </a>
+        <Link href={"/posts/" + slug}>
+            <a className={styles.card}>
+                <h2>{title}</h2>
+                <p>{description}</p>
+            </a>
+        </Link>
     )
 }
 
