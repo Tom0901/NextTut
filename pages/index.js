@@ -4,27 +4,34 @@ import styles from '../styles/Home.module.css'
 import Blog from '../components/Blog'
 
 const env = process.env.STRAPIBASEURL; 
-console.log(`my env: ${env}`)
-// export async function getStaticProps(context) {
-//   const fetchParams = {
-//     method: "POST", 
-//     headers: {
-//       authorization: `Bearer ${accessToken}`, 
-//       "content-type": "application/json"
-//     },
-//     body: JSON.stringify(
-//       {
 
-//       }
-//     )
-//   }
-//   const res = fetch()
+export async function getStaticProps(context) {
+  const fetchParams = {
+    method: "POST", 
+    headers: { 
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(
+      {
+        query: `
+        query{
+          blogPosts{
+            Title
+            BlogBody
+          }
+        }
+        `
+      }
+    )
+  }
+  const res = await fetch(`${env}/graphql`); 
+  // const data = await res.json(); 
+  console.log(res)
 
-
-//   return {
-//     props: {}
-//   };
-// }
+  return {
+    props: {title:"hello world"}
+  };
+}
 
 export default function Home() {
 
