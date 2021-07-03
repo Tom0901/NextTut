@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Blog from '../components/Blog'
 
-const env = process.env.STRAPIBASEURL; 
+const URL = process.env.STRAPIBASEURL; 
 
 export async function getStaticProps(context) {
   const fetchParams = {
@@ -27,7 +27,7 @@ export async function getStaticProps(context) {
       }
     )
   }
-  const res = await fetch(`${env}/graphql`, fetchParams); 
+  const res = await fetch(`${URL}/graphql`, fetchParams); 
   const {data} = await res.json(); 
   return {
     props: data
@@ -56,8 +56,8 @@ export default function Home({blogPosts}) {
 
         <div className={styles.grid}>
           {blogPosts.map((blog, i)=>{
-            const {title, description, slug} = blog
-            return <Blog title={title} description={description} slug={slug} key={i}/>
+            const {title, description, slug, blogBody} = blog
+            return <Blog title={title} description={description} slug={slug}key={i}/>
           })}
         </div>
       </main>

@@ -1,14 +1,25 @@
 import React from 'react'
-
+import styles from '../../styles/BlogPage.module.css'
+import unified from 'unified';
+import parse from 'remark-parse';
+import remark2react from 'remark-react';
 
 const URL = process.env.STRAPIBASEURL; 
 
-function Content({slug, title, description}) {
+
+function Content({ title, blogBody}) {
+  
+const content = unified()
+.use(parse)
+.use(remark2react)
+.processSync(blogBody).result;
 
   return (
-    <div>
+    <div className={styles.container}>
+      <main className={styles.grid}>
         <h1>{title}</h1>
-        <p>{description}</p>
+        <p>{content}</p>
+      </main>
     </div>
     )
   }
