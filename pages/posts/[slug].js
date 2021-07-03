@@ -3,6 +3,7 @@ import styles from '../../styles/BlogPage.module.css'
 import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
+import Footer from '../../components/Footer'
 
 const URL = process.env.STRAPIBASEURL; 
 
@@ -20,6 +21,7 @@ const content = unified()
         <h1>{title}</h1>
         <p>{content}</p>
       </main>
+      <Footer/>
     </div>
     )
   }
