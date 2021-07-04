@@ -5,22 +5,26 @@ import parse from 'remark-parse';
 import remark2react from 'remark-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
+import Image from 'next/image';
 
 
 
 const URL = process.env.STRAPIBASEURL; 
 
 
-function Content({ title, blogBody}) {
+function Content({ title, blogBody, splash}) {
   
 const content = unified()
 .use(parse)
 .use(remark2react)
 .processSync(blogBody).result;
 
+console.log(splash)
+
   return (
     <div className={styles.container}>
       <Header/>
+      <Image src={"https://res.cloudinary.com/tom090/image/upload/v1625419878/large_How_To_Become_A_Web_Developer_badf631983.jpg"} width={300} height={300}/>
       <main className={styles.grid}>
         <h1>{title}</h1>
         <p>{content}</p>
@@ -45,6 +49,9 @@ const content = unified()
             blogBody
             description
             slug
+            splash{
+              url
+            }
           }
         }
      `

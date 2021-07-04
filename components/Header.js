@@ -6,9 +6,13 @@ function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.btnContainer}>
-                <button className={styles.btn}>
-                    DEV.IO
-                </button>
+                <Link href="/">
+                    <a className={styles.lnk}>
+                        <button className={styles.btn}>
+                            DEV.IO
+                        </button>
+                    </a>
+                </Link>
             </div>
             <Link href="/">
                 <a className={styles.lnk}>
