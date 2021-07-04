@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 800px;
   padding: 1.5rem;
-  margin: 1rem;
+  margin: 1rem 1rem 0rem 1rem;
 }
 
 .btnContainer {
@@ -37,4 +37,11 @@
 
 .lnk:hover {
   color: inherit;
+}
+
+@media (max-width: 600px) {
+  .btnContainer {
+    align-self: flex-start;
+    width: 50%;
+  }
 }

@@ -17,3 +17,10 @@
   padding: 1.5rem;
   margin: 1rem;
 }
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

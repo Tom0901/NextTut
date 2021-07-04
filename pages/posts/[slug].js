@@ -19,14 +19,13 @@ const content = unified()
 .use(remark2react)
 .processSync(blogBody).result;
 
-console.log(splash)
 
   return (
     <div className={styles.container}>
       <Header/>
-      <Image src={"https://res.cloudinary.com/tom090/image/upload/v1625419878/large_How_To_Become_A_Web_Developer_badf631983.jpg"} width={300} height={300}/>
       <main className={styles.grid}>
-        <h1>{title}</h1>
+        <Image src={splash.url} layout="intrinsic" width={800} height={400}/>
+        <h1 >{title}</h1>
         <p>{content}</p>
       </main>
       <Footer/>
