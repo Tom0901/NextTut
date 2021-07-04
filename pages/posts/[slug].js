@@ -3,7 +3,10 @@ import styles from '../../styles/BlogPage.module.css'
 import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer'
+
+
 
 const URL = process.env.STRAPIBASEURL; 
 
@@ -17,6 +20,7 @@ const content = unified()
 
   return (
     <div className={styles.container}>
+      <Header/>
       <main className={styles.grid}>
         <h1>{title}</h1>
         <p>{content}</p>

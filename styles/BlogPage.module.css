@@ -14,4 +14,6 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   max-width: 800px;
+  padding: 1.5rem;
+  margin: 1rem;
 }
