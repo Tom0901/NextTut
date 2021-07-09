@@ -6,11 +6,9 @@ import remark2react from 'remark-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
 import Image from 'next/image';
-
-
+import ContentWrapper from '../../components/ContentWrapper';
 
 const URL = process.env.STRAPIBASEURL; 
-
 
 function Content({ title, blogBody, splash}) {
   
@@ -21,7 +19,7 @@ const content = unified()
 
 
   return (
-    <div className={styles.container}>
+    <ContentWrapper>
       <Header/>
       <main className={styles.grid}>
         <Image src={splash.url} layout="intrinsic" width={800} height={400}/>
@@ -29,7 +27,7 @@ const content = unified()
         <p>{content}</p>
       </main>
       <Footer/>
-    </div>
+    </ContentWrapper>
     )
   }
   
