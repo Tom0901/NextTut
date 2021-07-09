@@ -24,7 +24,7 @@ const content = unified()
       <main className={styles.grid}>
         <Image src={splash.url} layout="intrinsic" width={800} height={400}/>
         <h1 >{title}</h1>
-        <p>{content}</p>
+        <div>{content}</div>
       </main>
       <Footer/>
     </ContentWrapper>
