@@ -1,7 +1,5 @@
 .bodyContent {
   max-width: 800px;
-}
-
-.bodyContent img {
-  width: 100%;
+  padding: 1.5rem;
+  margin: 1rem;
 }
