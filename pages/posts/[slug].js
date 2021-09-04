@@ -59,7 +59,8 @@ const content = unified()
   const res = await fetch(`${URL}/graphql`, fetchParams); 
   const {data} = await res.json(); 
     return {
-        props: data.blogPosts[0]
+        props: data.blogPosts[0], 
+        revalidate: 10
     };
 }
 

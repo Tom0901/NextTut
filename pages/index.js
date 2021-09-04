@@ -32,7 +32,8 @@ export async function getStaticProps(context) {
   const res = await fetch(`${URL}/graphql`, fetchParams); 
   const {data} = await res.json(); 
   return {
-    props: data
+    props: data,
+    revalidate: 10, 
   };
 }
 
